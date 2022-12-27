@@ -1,0 +1,123 @@
+package projectgamelogal;
+import java.util.*;
+import java.lang.Math;
+
+public class ProjectGameLogal {
+    private static Random random = new Random();
+    private static Scanner input = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String userChoice;
+        
+        do {
+            System.out.println("=============================================");
+            System.out.println("    Selamat Datang di Game Number Browser");
+            System.out.println("                Pilihan Menu");
+            System.out.println("Main");
+            System.out.println("Prosedur");
+            System.out.println("Keluar");
+            System.out.println("\nSilahkan memilih menu anda: ");
+            userChoice = input.nextLine();
+            if (userChoice.equals("Main")) {
+                int merah, kuning, biru;
+                int numEasy, hasilNum;
+                int i, k, temp;
+                int[] hard = new int[5];
+                String warna, level;
+                
+                System.out.println("=============================================");
+                System.out.println("         Selamat Datang di Menu Main");
+                System.out.println("      Selamat Bermain Semoga Kamu Menang");
+                System.out.println("                   Level: \nEasy \nHard \n\nPilih Level: ");
+                level = input.nextLine();
+                System.out.println("\n                   Warna: \nMerah \nKuning \nBiru \n\nPilih Warna: ");
+                warna = input.nextLine();
+                if (level.equals("Easy")) {
+                    if (warna.equals("Merah")) {
+                        merah = random.nextInt(20);
+                        System.out.println("Anda Mendapat Angka " + merah);
+                        hasilNum = merah;
+                    } else {
+                        if (warna.equals("Kuning")) {
+                            kuning = random.nextInt(20);
+                            System.out.println("Anda Mendapat Angka " + kuning);
+                            hasilNum = kuning;
+                        } else {
+                            biru = random.nextInt(20);
+                            System.out.println("Anda Mendapat Angka " + biru);
+                            hasilNum = biru;
+                        }
+                    }
+                    numEasy = random.nextInt(20);
+                    System.out.println("Number Browser mendapat angka " + numEasy);
+                    if (numEasy < hasilNum) {
+                        System.out.println("             Selamat Anda Menang");
+                        System.out.println("=============================================");
+                    } else {
+                        if (numEasy == hasilNum) {
+                            System.out.println("           Anda mendapat poin seri");
+                            System.out.println("=============================================");
+                        } else {
+                            System.out.println("                 Anda Kalah");
+                            System.out.println("=============================================");
+
+                        }
+                    }
+                } else {
+                    for (i = 0; i <= 4; i++) {
+                        hard[i] = random.nextInt(20);
+                    }
+                    for (i = 0; i <= 4; i++) {
+                        for (k = 4; k >= i + 1; k--) {
+                            if (hard[k] > hard[k - 1]) {
+                                temp = hard[k];
+                                hard[k] = hard[k - 1];
+                                hard[k - 1] = temp;
+                            }
+                        }
+                    }
+                    numEasy = hard[0];
+                    if (warna.equals("Merah")) {
+                        merah = random.nextInt(20);
+                        System.out.println("Anda Mendapat Angka " + merah);
+                        hasilNum = merah;
+                    } else {
+                        if (warna.equals("Kuning")) {
+                            kuning = random.nextInt(20);
+                            System.out.println("Anda Mendapat Angka " + kuning);
+                            hasilNum = kuning;
+                        } else {
+                            biru = random.nextInt(20);
+                            System.out.println("Anda Mendapat Angka " + biru);
+                            hasilNum = biru;
+                        }
+                    }
+                    System.out.println("Number Browser mendapat angka " + numEasy);
+                    if (numEasy < hasilNum) {
+                        System.out.println("             Selamat Anda Menang");
+                        System.out.println("=============================================");
+                    } else {
+                        if (numEasy == hasilNum) {
+                            System.out.println("           Anda mendapat poin seri");
+                            System.out.println("=============================================");
+                        } else {
+                            System.out.println("                 Anda Kalah");
+                            System.out.println("=============================================");
+                        }
+                    }
+                }
+            }
+            if (userChoice.equals("Prosedur")) {
+                System.out.println("=============================================");
+                System.out.println("       Selamat Datang di Menu Prosedur");
+                System.out.println("Number Browser adalah permainan perbandingan \nnumerik dengan aturan sederhana, pilih level yang \nAnda inginkan dan pilihlah salah satu kartu untuk \nmendapat nomor acak antara 0 hingga 20. Dalam hal \nini, program komputer juga menerima nomor acak  \nantara 0 hingga 20. Pemain dengan angka tertinggi \nakan memenangkan permainan");
+                System.out.println("\n");
+                System.out.println("Number Browser sangat berguna untuk bersenang\n-senang sambil mencoba keberuntungan. Isi waktu \nluangmu mencoba keberuntungan dengan Number Browser! \nSetiap kali Anda bosan atau lelah, segera mainkan \nNumber Browser untuk menyegarkan pikiran dan \nmelatih emosi Anda.");
+            }
+        }
+        while (!userChoice.equals("Keluar"));
+        System.out.println("=============================================");
+        System.out.println("   Terima Kasih sudah bermain bersama kami");
+        System.out.println("              Have a Nice Day");
+    }
+}
